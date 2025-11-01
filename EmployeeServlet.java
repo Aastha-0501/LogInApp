@@ -28,7 +28,6 @@ public class EmployeeServlet extends HttpServlet {
             ResultSet rs;
 
             if (empIdParam != null && !empIdParam.isEmpty()) {
-                // Search specific employee
                 String query = "SELECT * FROM Employee WHERE EmpID = ?";
                 PreparedStatement ps = con.prepareStatement(query);
                 ps.setInt(1, Integer.parseInt(empIdParam));
@@ -46,7 +45,6 @@ public class EmployeeServlet extends HttpServlet {
                     out.println("</table>");
                 }
             } else {
-                // Display all employees
                 stmt = con.createStatement();
                 rs = stmt.executeQuery("SELECT * FROM Employee");
 
@@ -66,3 +64,4 @@ public class EmployeeServlet extends HttpServlet {
         out.println("</body></html>");
     }
 }
+
